@@ -1,0 +1,13 @@
+url         : https://brandstore.e-shopland.ch/
+user        : kunden01@gmail.com
+password    : kunden.01
+
+* Are all images defined on the home page?
+* Is it possible to log in with the correct user and password?
+* Menu : All Products
+         Do you have pictures and price information of all products?
+         Does the categories on the left side dropdown work?
+         Is the sorting process at the top right working properly?
+         Is product filtering working properly?
+* Can products be added or removed from favorites?
+* Is the last clicked product listed in the "Recently viewed" section under the left categories?

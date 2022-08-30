@@ -32,13 +32,13 @@ public class Hook1 {
 
 
         if (scenario.isFailed()) {
-            System.out.println("senaryo başarısız  oldu");
-            ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "Başarısız", ExcelUtility.getCurrentTime())));
+            System.out.println("scenario fail!");
+            ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "fail!", ExcelUtility.getCurrentTime())));
         } else {
-            ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "Başarılı", ExcelUtility.getCurrentTime())));
-            System.out.println("senaryo başarılı");
+            ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "work!", ExcelUtility.getCurrentTime())));
+            System.out.println("scenario is successfully!");
         }
-        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "Bitti", ExcelUtility.getCurrentTime())));
+        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "work done!", ExcelUtility.getCurrentTime())));
 
         System.out.println("after hook");
        // Driver.quitDriver();
@@ -46,13 +46,13 @@ public class Hook1 {
 
     @BeforeAll
     public static void beforeAll() {
-        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList("Senaryo Adı", "Durumu", "Tarih")));
+        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList("Scenario name", "Status", "Date")));
 
     }
 
     @AfterAll
     public static void afterAll() {
-        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList("Test Bitti", "Bitiş Tarih Saati", ExcelUtility.getCurrentTime())));
+        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList("Test done", "End Date Time", ExcelUtility.getCurrentTime())));
 
     }
 

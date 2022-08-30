@@ -18,14 +18,14 @@ import static pages.Locators.*;
 
 public class TumUrunlerStepdefs extends ParentClass {
 
-    @And("Kullanıcı Alle Produkte butonuna basar")
-    public void kullanıcıAlleProdukteButonunaBasar() {
+    @And("User presses button Alle Produkte")
+    public void userPressesButtonAlleProdukte() {
         clickTo(lTumUrunlerButonu);
 
     }
 
-    @When("Kullanıcı All butonuna basar")
-    public void kullanıcıAllButonunaBasar() {
+    @When("User presses on button All")
+    public void userPressesOnButtonAll() {
         clickTo(lAllButonu);
 
     }

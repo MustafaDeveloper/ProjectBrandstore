@@ -16,15 +16,15 @@ import static pages.Locators.*;
 public class AnaSayfaLoginOlma extends ParentClass {
 
 
-    @Given("kullanıcı siteye gider {string}")
-    public void kullanıcıSiteyeGider(String url) {
+    @Given("User goes to page {string}")
+    public void userGoesToPage(String url) {
         gotoSite(url);
         // clickTo(lcookies);
 
     }
 
-    @When("Ürünlerin tanımlı olduğunu görür")
-    public void ürünlerinTanımlıOlduğunuGörür() {
+    @When("User sees that the Products are defined")
+    public void userSeesThatTheProductsAreDefined() {
 
         List<WebElement> list = driver.findElements(lHomeImg);
 
@@ -36,25 +36,25 @@ public class AnaSayfaLoginOlma extends ParentClass {
     }
 
 
-    @When("Login butonuna basar")
-    public void loginButonunaBasar() {
+    @When("User presses on button Login")
+    public void userPressesOnButtonLogin() {
         clickTo(lloginButton);
 
     }
 
-    @And("kullanıcı  email {string} ve password {string} girer")
-    public void kullanıcıEmailVePasswordGirer(String email, String password) {
+    @And("User enters email {string} and password {string}")
+    public void userEntersEmailAndPassword(String email, String password) {
         sendKeysTo(lusurname, email);
         sendKeysTo(lpassword, password);
     }
 
-    @And("Kullanıcı Anmelden butonuna basar")
-    public void kullanıcıAnmeldenButonunaBasar() {
+    @And("User presses button Anmelden")
+    public void userPressesButtonAnmelden() {
         clickTo(lsubmitButton);
     }
 
-    @Then("Mein Konto ifadesini görür")
-    public void meinKontoIfadesiniGörür() {
+    @Then("User sees statement Mein Konto")
+    public void userSeesStatementMeinKonto() {
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(lMeinKonto));
         clickTo(element);
         Assert.assertTrue(element.getText().contains("Mein Konto"));

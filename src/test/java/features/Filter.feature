@@ -1,7 +1,7 @@
-Feature: Filtreleme
+Feature: Filter
 
   Background:
-    Given kullanıcı siteye gider "https://brandstore.e-shopland.ch/"
+    Given User goes to page "https://brandstore.e-shopland.ch/"
     And    Kullanıcı Alle Produkte butonuna basar
     And    Kullanıcı Produkte-Filtere tıklar
 

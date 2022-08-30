@@ -43,16 +43,16 @@ public class Favori_SonGrt_Check {
         Assert.assertTrue(productNameList.contains(favorite));
     }
 
-    @Given("Kullanici urun secer")
-    public void kullaniciUrunSecer() {
+    @Given("User selects product")
+    public void userSelectsProduct() {
         clickTo(lTumUrunlerButonu);
         clickTo(lAllButonu);
         selectProduct();
 
     }
 
-    @Then("Kullanici sectigi urunu son goruntulenenlerde dogrular")
-    public void kullaniciSectigiUrunuSonGoruntulenenlerdeDogrular() {
+    @Then("User validates the selected product in the last viewers")
+    public void userValidatesTheSelectedProductInTheLastViewers() {
         sonGoruntulenenList();
         Assert.assertTrue(sonGrountulenenler.contains(goruntulenen));
 

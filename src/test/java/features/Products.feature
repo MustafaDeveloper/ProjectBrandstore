@@ -1,13 +1,13 @@
 Feature: TumUrunler
 
   Background:
-    Given kullanıcı siteye gider "https://brandstore.e-shopland.ch/"
-    And    Kullanıcı Alle Produkte butonuna basar
+    Given  User goes to page "https://brandstore.e-shopland.ch/"
+    And    User presses button Alle Produkte
 
-  @TümÜrünlerResimFiyat
-  Scenario: Tüm ürünlerin resimleri ve fiyat bilgileri var mi
+  @AllProductsPictureAndPrice
+  Scenario: Picture and price information of all products
 
-    When   Kullanıcı All butonuna basar
+    When   User presses on button All
     Then   Tüm ürünlerin resimlerinin  varlığını doğrular
     And    Tüm ürünlerin fiyat bilgilerin varlığını doğrular
 

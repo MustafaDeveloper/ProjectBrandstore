@@ -3,7 +3,7 @@ Feature: Wunschliste Check
   Scenario: Login
     Given kullanıcı siteye gider "https://brandstore.e-shopland.ch/"
     When  Login butonuna basar
-    And   kullanıcı  email "kursjava@gmail.com" ve password "kurs.java.123" girer
+    And   User enters email "kunden01@gmail.com" and password "kunden.01"
     And   Kullanıcı Anmelden butonuna basar
 
  # @Favorite
@@ -15,7 +15,8 @@ Feature: Wunschliste Check
       Then  user checks selected favorite products
 
   @SonGrt
-  Scenario: Son goruntulenler
+  Scenario: Recently viewed
 
-    Given  Kullanici urun secer
-    Then  Kullanici sectigi urunu son goruntulenenlerde dogrular
+    Given User selects product
+    Then  User validates the selected product in the last viewers
+
