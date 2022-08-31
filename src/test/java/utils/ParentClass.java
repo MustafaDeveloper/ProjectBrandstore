@@ -12,7 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-
+/***
+ *
+ * The driver is created here from the Driver class and the common methods are called from this class.
+ */
 import static pages.Locators.*;
 
 public class ParentClass {

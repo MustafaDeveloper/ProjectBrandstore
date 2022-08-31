@@ -14,7 +14,8 @@ public class Driver {
     protected static ThreadLocal<Browser> browserNames = new ThreadLocal<>();
 
     /**
-     * @return
+     * Threadlocal is used instead of singleton driver so that the driver can be used in parallel tests.
+     * *
      */
     public static WebDriver getDriver() {
         return getDriver(Browser.CHROME);
