@@ -27,20 +27,20 @@ public class Main extends ParentClass {
        gotoSite("https://brandstore.e-shopland.ch/");
        clickTo(lcookies);
 
-       clickTo(lTumUrunlerButonu);
+       clickTo(lAlleProdukteButton);
        clickTo(lProducteFilterButton);
        Actions actions=new Actions(driver);
-       WebElement slidersağa=wait.until(ExpectedConditions.visibilityOfElementLocated(lSağaaKaydırma));
+       WebElement slidersağa=wait.until(ExpectedConditions.visibilityOfElementLocated(lRightScroll));
        Action sağakaydırma=actions.dragAndDropBy(slidersağa,50,0).build();
        sağakaydırma.perform();
        sleepTo(1000);
-       WebElement slidersola=wait.until(ExpectedConditions.visibilityOfElementLocated(lSağaaKaydırma));
+       WebElement slidersola=wait.until(ExpectedConditions.visibilityOfElementLocated(lRightScroll));
 
        Action solakaydırma=actions.dragAndDropBy(slidersola,-60,0).build();
        solakaydırma.perform();
 
 
-       WebElement fiyat=locatorToElement(lSlipBarFiyat);
+       WebElement fiyat=locatorToElement(lSlipBarPrice);
 
       String[] array= fiyat.getText().split("—");
       ArrayList<Double> SlipBarFiyat=new ArrayList<>();

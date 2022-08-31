@@ -7,13 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import static pages.Locators.*;
 
@@ -51,7 +49,7 @@ public class ParentClass {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",locatorToElement(by));
     }
-    public void sleepTo(long milis) {
+    public static void sleepTo(long milis) {
         try {
             Thread.sleep(milis);
         } catch (InterruptedException e) {
@@ -81,7 +79,7 @@ public class ParentClass {
 
         return (int) (Math.random() * (max-min)+min);
     }
-    public WebElement locatorToElement(By locator){
+    public static WebElement locatorToElement(By locator){
         return driver.findElement(locator);
     }
 
@@ -90,13 +88,13 @@ public class ParentClass {
         driver.get("https://brandstore.e-shopland.ch/");
         clickTo(lcookies);
         clickTo(lloginButton);
-        sendKeysTo(lusurname,"kursjava@gmail.com");
+        sendKeysTo(lusername,"kursjava@gmail.com");
         sendKeysTo(lpassword,"kurs.java.123");
         clickTo(lsubmitButton);
 
     }
 
-    public  void slideElement(By by,int xValue, int yValue) {
+    public static void slideElement(By by, int xValue, int yValue) {
         Actions actions = new Actions(driver);
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
         Action actionElement = actions.dragAndDropBy(element, xValue, yValue).build();
@@ -105,7 +103,7 @@ public class ParentClass {
 
     }
 
-    public ArrayList<Double> getPrices(String[] strArray) {
+    public static ArrayList<Double> getPrices(String[] strArray) {
         ArrayList<Double> arrayList = new ArrayList<>();
         for (int i = 0; i < strArray.length; i++) {
             arrayList.add(getPrice(strArray[i]));
@@ -113,7 +111,7 @@ public class ParentClass {
         return arrayList;
     }
 
-    public  ArrayList<Double> getPrices(By by, String str1, String str2, int indexFirstLast) {
+    public static ArrayList<Double> getPrices(By by, String str1, String str2, int indexFirstLast) {
         List<WebElement> ürünlist = driver.findElements(by);
         ArrayList<Double> arrayList = new ArrayList<>();
         for (int i = 0; i < ürünlist.size(); i++) {
@@ -124,11 +122,11 @@ public class ParentClass {
         return arrayList;
     }
 
-    public  double getPrice(String str) {
+    public static double getPrice(String str) {
         String fiyatstr = str.replaceAll("[^0-9]", "");
         return Double.parseDouble(fiyatstr);
     }
-    public void urunSecipTıkla(By listlocator,By clicklocator){
+    public void selectAndClick(By listlocator, By clicklocator){
         List<WebElement> ürünlist = driver.findElements(listlocator) ;
         int random = getrandom(ürünlist.size());
         scrollIntoView(ürünlist.get(random));
@@ -137,7 +135,7 @@ public class ParentClass {
         clickTo(clicklocator);
     }
 
-    public List<String> filtrelemeSecim(By filtrelemeinput,By ürünlist,By clickJetzFiltern){
+    public List<String> filterSelected(By filtrelemeinput, By ürünlist, By clickJetzFiltern){
         clickTo(filtrelemeinput);
         sleepTo(1000);
         List<WebElement> getOptions = driver.findElements(ürünlist);
@@ -147,7 +145,7 @@ public class ParentClass {
         selectUrunIsim.add(gettext);
         getOptions.get(random).click();
         clickTo(clickJetzFiltern);
-        clickTo(lAllButonu);
+        clickTo(lAllButton);
         sleepTo(500);
         return selectUrunIsim;
     }

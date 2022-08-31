@@ -1,18 +1,18 @@
 Feature: Wunschliste Check
 
-  Scenario: Login
-    Given kullanıcı siteye gider "https://brandstore.e-shopland.ch/"
-    When  Login butonuna basar
-    And   User enters email "kunden01@gmail.com" and password "kunden.01"
-    And   Kullanıcı Anmelden butonuna basar
 
- # @Favorite
-#    Scenario: Wunschliste
+  Background:
+    Given   User goes to page "https://brandstore.e-shopland.ch/"
+    When    User clicks on button Login
+    And     User enters email "kunden01@gmail.com" and password "kunden.01"
+    And     User clicks on button Anmelden
 
-   #   Given user clicks on favorite products
-   #   When  user clicks on favorite button
-      And   user gets products from favorite site
-      Then  user checks selected favorite products
+  @Favorite
+  Scenario: Wunschliste
+
+    Given user clicks on favorite products
+    And   user gets products from favorite site
+    Then  user checks selected favorite products
 
   @SonGrt
   Scenario: Recently viewed
