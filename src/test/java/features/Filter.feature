@@ -1,33 +1,33 @@
 Feature: Filter
 
   Background:
-    Given User goes to page "https://brandstore.e-shopland.ch/"
-    And    Kullanıcı Alle Produkte butonuna basar
-    And    Kullanıcı Produkte-Filtere tıklar
+    Given   User goes to page "https://brandstore.e-shopland.ch/"
+    And     User clicks on button All
+    And     User clicks on button Produkte-Filter
 
 
-    @FiyataGöreFiltrelemeSlider
-    Scenario: Fiyat aralığına göre sıralama
-      When  Kullanıcı seçtiği fiyat aralığı seçer
-      Then  Seçtiği fiyat aralığındaki ürünlerin fiyatını doğrular
+  @FilterByPriceRange
+  Scenario: Sort by price range
+    When  User selects price range
+    Then  User verifies the price of the products in the selected range
 
 
-   @RengeGöreÜrünFiltreleme
-  Scenario: Renge Göre Fitreleme Çalışıyor mu?
-    When  Filter nach Farbe kısmından renk seçer
-    Then  Seçtiği renge göre ürün filtrelemenin çalıştığını doğrular
+  @FilterByColour
+  Scenario: Sort by colour
+    When  User selects color with Filter nach Farbe
+    Then  user verifies that filtering by color is working
 
-   @CinsiyeteGoreFiltreleme
-   Scenario: Cinsiyete Göre Filtreleme Çalışıyor mu?
-     When Filtern nach Gender kısmından cinsiyet seçer
-     Then Seçtiği cinsiyete göre ürün filtrelemesinin çalıştığını doğrular
+  @FilterByGender
+  Scenario: Cinsiyete Göre Filtreleme Çalışıyor mu?
+    When Filtern nach Gender kısmından cinsiyet seçer
+    Then Seçtiği cinsiyete göre ürün filtrelemesinin çalıştığını doğrular
 
-  @BedeneGoreFiltreleme
+  @FilterBySize
   Scenario: Bedene Göre Filtreleme Çalışıyor mu?
     When Filtern nach Grösse kısmından beden seçer
     Then Seçilen bedene göre ürün filtrelemesinin çalıştığını doğrular
 
-  @MalmemeyeGoreFiltreleme
+  @FilterByMaterial
   Scenario: Malzemeye Göre Filtreleme Çalışıyor mu?
     When Filtern nach Material kısmından malzeme türünü seçer
     Then Seçilen malzemeye göre ürün filtrelemesinin çalıştığını doğrular

@@ -14,7 +14,7 @@ import static pages.Locators.lTumUrunlerButonu;
 import static pages.PagesFavori_SonGrt.*;
 
 
-public class Favori_SonGrt_Check {
+public class FavoriteChecksStepDefs {
 
     List<String> productNameList = new ArrayList<>();
 

@@ -7,16 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import utils.ExcelUtility;
 import utils.ParentClass;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static pages.Locators.*;
 
-public class TumUrunlerStepdefs extends ParentClass {
+public class ProductsStepdefs extends ParentClass {
 
     @And("User presses button Alle Produkte")
     public void userPressesButtonAlleProdukte() {
@@ -24,8 +22,9 @@ public class TumUrunlerStepdefs extends ParentClass {
 
     }
 
-    @When("User presses on button All")
-    public void userPressesOnButtonAll() {
+    @When("User clicks on button All")
+    public void userClicksOnButtonAll() {
+        clickTo(lJetztShoppenButton);
         clickTo(lAllButonu);
 
     }

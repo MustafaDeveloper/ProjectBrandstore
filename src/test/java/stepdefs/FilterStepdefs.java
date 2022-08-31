@@ -13,19 +13,19 @@ import java.util.List;
 
 import static pages.Locators.*;
 
-public class FiltrelemeStepdefs extends ParentClass {
+public class FilterStepdefs extends ParentClass {
 
 
-    @And("Kullanıcı Produkte-Filtere tıklar")
-    public void kullanıcıProdukteFiltereTıklar() {
+    @And("User clicks on button Produkte-Filter")
+    public void userClicksOnButtonProduct_Filter() {
         clickTo(lProducteFilterButton);
 
     }
 
     ArrayList<Double> SlipBarFiyat = new ArrayList<>();
 
-    @When("Kullanıcı seçtiği fiyat aralığı seçer")
-    public void kullanıcıSeçtiğiFiyatAralığıSeçer() {
+    @When("User selects price range")
+    public void userSelectsPriceRange() {
 
         slideElement(lSağaaKaydırma, 50, 0);
         clickTo(lSlipBarFiyat);
@@ -38,8 +38,8 @@ public class FiltrelemeStepdefs extends ParentClass {
 
     }
 
-    @Then("Seçtiği fiyat aralığındaki ürünlerin fiyatını doğrular")
-    public void sectigiFiyatAralıgındakiUrunlerinFiyatınıDogrular() {
+    @Then("User verifies the price of the products in the selected range")
+    public void userVerifiesThePriceOfTheProductsInTheSelectedRange() {
 
         ArrayList<Double> ürünFiyatList = getPrices(lSıralananUrunFiyat, "F", "0", 2);
         for (int i = 0; i < ürünFiyatList.size(); i++) {
@@ -50,14 +50,13 @@ public class FiltrelemeStepdefs extends ParentClass {
 
     List<String> selectUrunIsim = new LinkedList<>();
 
-    @When("Filter nach Farbe kısmından renk seçer")
-    public void filterNachFarbeKısmındanRenkSeçer() {
+    @When("User selects color with Filter nach Farbe")
+    public void useSelectColorWithFilterNachFarbe() {
         selectUrunIsim.add(filtrelemeSecim(lRengeGoreFiltrelemeInput, lSelectdekiFiltrelemeKıstasları, lRengeGoreJetzFiltern).get(0));
     }
 
-    @Then("Seçtiği renge göre ürün filtrelemenin çalıştığını doğrular")
-    public void seçtiğiRengeGöreÜrünFiltrelemeninÇalıştığınıDoğrular() {
-
+    @Then("User verifies that filtering by color is working")
+    public void userVerifiesThatFilteringByColorIsWorking() {
         urunSecipTıkla(lSecileneGoreSıralananUrunler, lUrunOzellikler);
         String ürünrenkler = driver.findElement(lUrunRenkKontrol).getText();
         Assert.assertTrue(ürünrenkler.contains(selectUrunIsim.get(0)));

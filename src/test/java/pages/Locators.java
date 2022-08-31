@@ -6,7 +6,7 @@ public interface Locators {
     By lcookies = By.cssSelector("p a.woocommerce-store-notice__dismiss-link");
     //By lloginButton=By.xpath("(//span[@class='menu-text']//span[text()='Login'])[1]");
     By lloginButton = By.xpath("(//i[@class='_mi _before far fa-user-circle'])[1]");
-
+    By lJetztShoppenButton = By.cssSelector(".elementor-button-wrapper>a");
     By lusurname = By.cssSelector("p input#username");
     By lpassword = By.cssSelector("p input#password");
     By lsubmitButton = By.xpath("(//button[@type='submit'])[2]");

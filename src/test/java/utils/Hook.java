@@ -1,22 +1,19 @@
 package utils;
 
-import io.cucumber.core.gherkin.Step;
 import io.cucumber.java.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.testng.annotations.AfterMethod;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Hook1 {
-    public static String path = "src/test/java/excel/log1.xlsx";
+    public static String path = "src/test/java/Logs/log1.xlsx";
     public static String sheetName = "logSayfasi1";
 
     @Before
     public void beforeHook(Scenario scenario) {
         Driver.getDriver();
-        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "Başladı", ExcelUtility.getCurrentTime())));
-        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(),Driver.browserNames.get()+" başladı", ExcelUtility.getCurrentTime())));
+        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(), "begin", ExcelUtility.getCurrentTime())));
+        ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList(scenario.getName(),Driver.browserNames.get()+" begin", ExcelUtility.getCurrentTime())));
 
 
     }
@@ -52,6 +49,7 @@ public class Hook1 {
 
     @AfterAll
     public static void afterAll() {
+        Driver.getDriver().close();
         ExcelUtility.writeToExcel(new ArrayList<>(Arrays.asList("Test done", "End Date Time", ExcelUtility.getCurrentTime())));
 
     }

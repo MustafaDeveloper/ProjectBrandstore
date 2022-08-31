@@ -13,7 +13,7 @@ import java.util.List;
 
 import static pages.Locators.*;
 
-public class AnaSayfaLoginOlma extends ParentClass {
+public class LoginStepdefs extends ParentClass {
 
 
     @Given("User goes to page {string}")
@@ -36,8 +36,8 @@ public class AnaSayfaLoginOlma extends ParentClass {
     }
 
 
-    @When("User presses on button Login")
-    public void userPressesOnButtonLogin() {
+    @When("User clicks on button Login")
+    public void userClicksOnButtonLogin() {
         clickTo(lloginButton);
 
     }
@@ -48,8 +48,8 @@ public class AnaSayfaLoginOlma extends ParentClass {
         sendKeysTo(lpassword, password);
     }
 
-    @And("User presses button Anmelden")
-    public void userPressesButtonAnmelden() {
+    @And("User clicks on button Anmelden")
+    public void userClicksOnButtonAnmelden() {
         clickTo(lsubmitButton);
     }
 

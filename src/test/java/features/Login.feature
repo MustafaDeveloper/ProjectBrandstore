@@ -7,8 +7,9 @@ Feature: Brandstore
 
   @Login
   Scenario:Login
-    Given   User presses on button Login
+    Given   User goes to page "https://brandstore.e-shopland.ch/"
+    When    User clicks on button Login
     And     User enters email "kunden01@gmail.com" and password "kunden.01"
-    And     User presses button Anmelden
+    And     User clicks on button Anmelden
     Then    User sees statement Mein Konto
 
