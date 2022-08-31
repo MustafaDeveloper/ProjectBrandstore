@@ -63,40 +63,40 @@ public class FilterStepdefs extends ParentClass {
 
     }
 
-    @When("Filtern nach Grösse kısmından beden seçer")
-    public void filternNachGrösseKısmındanBedenSeçer() {
+    @When("User selects gender from Filtern-nach-Groesse")
+    public void userSelectsGenderFromFiltern_nach_Groesse() {
         selectUrunIsim.add(filtrelemeSecim(lBedeneGoreFiltrelemeInput, lSelectdekiFiltrelemeKıstasları, lBedeneGoreJetzFiltern).get(0));
 
     }
 
-    @Then("Seçilen bedene göre ürün filtrelemesinin çalıştığını doğrular")
-    public void seçilenBedeneGöreÜrünFiltrelemesininÇalıştığınıDoğrular() {
+    @Then("User verifies that filtering by size is working")
+    public void userVerifiesThatFilteringBySizeIsWorking() {
         urunSecipTıkla(lSecileneGoreSıralananUrunler, lUrunOzellikler);
         String ürünbeden = driver.findElement(lUrunBedenKontrol).getText();
         Assert.assertTrue(ürünbeden.contains(selectUrunIsim.get(0)));
     }
 
 
-    @When("Filtern nach Material kısmından malzeme türünü seçer")
-    public void filternNachMaterialKısmındanMalzemeTürünüSeçer() {
+    @When("User selects gender from Filtern-nach-Material")
+    public void userSelectsGenderFromFiltern_nach_Material() {
         selectUrunIsim.add(filtrelemeSecim(lMalzemeyeGoreFiltrelemeInput, lSelectdekiFiltrelemeKıstasları, lMalzemeyeGoreJetzFiltern).get(0));
     }
 
-    @Then("Seçilen malzemeye göre ürün filtrelemesinin çalıştığını doğrular")
-    public void seçilenMalzemeyeGöreÜrünFiltrelemesininÇalıştığınıDoğrular() {
+    @Then("User verifies that filtering by material is working")
+    public void userVerifiesThatFilteringByMaterialIsWorking() {
         urunSecipTıkla(lSecileneGoreSıralananUrunler, lUrunOzellikler);
         String ürünMalzeme = driver.findElement(lUrunMalzemeKontrol).getText();
         Assert.assertTrue(ürünMalzeme.contains(selectUrunIsim.get(0)));
     }
 
-    @When("Filtern nach Gender kısmından cinsiyet seçer")
-    public void filternNachGenderKısmındanCinsiyetSeçer() {
+    @When("User selects gender from Filtern-nach-Gender")
+    public void userSelectsGenderFromFiltern_nach_Gender() {
 
         selectUrunIsim.add(filtrelemeSecim(lCinsiyeteGoreFiltrelemeInput, lSelectdekiFiltrelemeKıstasları, lCinsiyeteGoreJetzFiltern).get(0));
     }
 
-    @Then("Seçtiği cinsiyete göre ürün filtrelemesinin çalıştığını doğrular")
-    public void seçtiğiCinsiyeteGöreÜrünFiltrelemesininÇalıştığınıDoğrular() {
+    @Then("User verifies that filtering by gender is working")
+    public void userVerifiesThatFilteringByGenderIsWorking() {
         urunSecipTıkla(lSecileneGoreSıralananUrunler, lUrunOzellikler);
         String ürüncinsiyet = driver.findElement(lUrunCinsiyetKontrol).getText();
         Assert.assertTrue(ürüncinsiyet.contains(selectUrunIsim.get(0)));

@@ -16,22 +16,22 @@ import static pages.Locators.*;
 
 public class ProductsStepdefs extends ParentClass {
 
-    @And("User presses button Alle Produkte")
-    public void userPressesButtonAlleProdukte() {
+    @And("User clicks on button Alle Produkte")
+    public void userClicksOnButtonAlleProdukte() {
         clickTo(lTumUrunlerButonu);
 
     }
 
     @When("User clicks on button All")
     public void userClicksOnButtonAll() {
-        clickTo(lJetztShoppenButton);
+        //clickTo(lJetztShoppenButton);
         clickTo(lAllButonu);
 
     }
 
 
-    @Then("Tüm ürünlerin resimlerinin  varlığını doğrular")
-    public void tümÜrünlerinResimlerininVarlığınıDoğrular() {
+    @Then("User verifies the existence of images of all products")
+    public void userVerifiesTheExistenceOfImagesOfAllProducts() {
         List<WebElement> tümUrünlist = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(lTümürünler));
         for (int i = 0; i < tümUrünlist.size(); i++) {
             wait.until(ExpectedConditions.visibilityOf(tümUrünlist.get(i).findElement(lTümürünlerResim)));
@@ -43,8 +43,8 @@ public class ProductsStepdefs extends ParentClass {
     }
 
 
-    @And("Tüm ürünlerin fiyat bilgilerin varlığını doğrular")
-    public void tümÜrünlerinFiyatBilgilerinVarlığınıDoğrular() {
+    @And("User verifies the existence of prices of all products")
+    public void userVerifiesTheExistenceOfPricesOfAllProducts() {
         List<WebElement> tümUrünlist = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(lTümürünler));
 
         for (int i = 0; i < tümUrünlist.size(); i++) {
@@ -58,8 +58,8 @@ public class ProductsStepdefs extends ParentClass {
 
     List<Integer> KategoriSayıList = new ArrayList<>();
 
-    @When("Kategorien dropdownundan  menü secer")
-    public void kategorienDropdownundanMenüSecer() {
+    @When("User selects menu from Kategorien-Dropdown")
+    public void userSelectsMenuFromKategorien_Dropdown() {
         WebElement eKategori = driver.findElement(lKategorilerDropdown);
         Select select = new Select(eKategori);
         List<WebElement> kategorilist = select.getOptions();
@@ -72,8 +72,8 @@ public class ProductsStepdefs extends ParentClass {
 
     }
 
-    @Then("Kategorien dropdownundaki menülerde belirtilen ürün sayısılarından seçileni doğrular")
-    public void kategorienDropdownundakiMenülerdeBelirtilenÜrünSayısılarındanSeçileniDoğrular() {
+    @Then("User validates the number of products specified in the menu")
+    public void userValidatesTheNumberOfProductsSpecifiedInTheMenu() {
 
         clickTo(lAllButonu);
         List<WebElement> ürünlist = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(lSecileneGoreSıralananUrunler));
