@@ -27,20 +27,16 @@ public class Driver {
             browserNames.set(browser);
             switch (browser) {
                 case FIREFOX:
-                    WebDriverManager.firefoxdriver().setup();
                     drivers.set(new FirefoxDriver());
                     break;
                 case EDGE:
-                    WebDriverManager.edgedriver().setup();
+
                     drivers.set(new EdgeDriver());
                     break;
                 default:
-                    WebDriverManager.chromedriver().setup();
-                    ChromeOptions options = new ChromeOptions();
-                    options.setExperimentalOption("useAutomationExtension", false);
-                    options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
-                    options.addArguments("--disable-blink-features=AutomationControlled");
-                    drivers.set(new ChromeDriver(options));
+                   // System.setProperty("webdriver.chrome.driver", "/C:/Users/Mustafa/Downloads/chromedriver_win32");
+
+                    drivers.set(new ChromeDriver());
                     drivers.get().manage().deleteAllCookies();
                     break;
             }
